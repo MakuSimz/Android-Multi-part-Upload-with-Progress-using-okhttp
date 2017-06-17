@@ -26,20 +26,6 @@ public class RequestBuilder {
                 .add("logintoken", token)
                 .build();
     }
-
-    public static HttpUrl buildURL() {
-        return new HttpUrl.Builder()
-                .scheme("http") //http
-                .host("41.63.53.35")
-                .addPathSegment("hugefile/save_file.php")//adds "/pathSegment" at the end of hostname
-                .addQueryParameter("param1", "value1") //add query parameters to the URL
-                .addEncodedQueryParameter("encodedName", "encodedValue")//add encoded query parameters to the URL
-                .build();
-        /**
-         * The return URL:
-         *  https://www.somehostname.com/pathSegment?param1=value1&encodedName=encodedValue
-         */
-    }
     public static MultipartBody uploadRequestBody(String title, String imageFormat, String token, File file) {
         String content_type = getMimeType(file.getPath());
         String file_path = file.getAbsolutePath();
